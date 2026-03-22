@@ -133,6 +133,7 @@ body {
   --neo-shadow-offset: 4px;
   --neo-shadow-offset-lg: 8px;
   --neo-shadow-color: #000000;
+  --secondary-background: #E8E8E4;
 
   /* Charts */
   --chart-1: #FFDF00;
@@ -202,6 +203,7 @@ body {
   --neo-shadow-offset: 4px;
   --neo-shadow-offset-lg: 8px;
   --neo-shadow-color: #F4F4F0;
+  --secondary-background: #141414;
 
   /* Charts */
   --chart-1: #39FF14;
@@ -438,5 +440,86 @@ body {
 
   .neo-marquee:hover .neo-marquee-content {
     animation-play-state: paused;
+  }
+
+  /* ── Hero Section Animations ────────────────────────────────────── */
+
+  @keyframes float-1 {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-20px) rotate(1deg); }
+  }
+
+  @keyframes float-2 {
+    0%, 100% { transform: translateY(0) rotate(2deg); }
+    50% { transform: translateY(20px) rotate(-2deg); }
+  }
+
+  @keyframes float-3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, -15px) rotate(3deg); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes rotating-text {
+    0%, 12.5% { transform: translateY(0); }
+    14%, 26.5% { transform: translateY(-1.25em); }
+    28%, 40.5% { transform: translateY(-2.5em); }
+    42%, 54.5% { transform: translateY(-3.75em); }
+    56%, 68.5% { transform: translateY(-5em); }
+    70%, 82.5% { transform: translateY(-6.25em); }
+    84%, 96.5% { transform: translateY(-7.5em); }
+    98%, 100% { transform: translateY(0); }
+  }
+
+  .animate-float-1 { animation: float-1 6s ease-in-out infinite; }
+  .animate-float-2 { animation: float-2 8s ease-in-out infinite; }
+  .animate-float-3 { animation: float-3 7s ease-in-out infinite; }
+  .animate-spin-slow { animation: spin-slow 12s linear infinite; }
+
+  .rotating-text-wrapper {
+    height: 1.25em;
+    line-height: 1.25em;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+
+  .rotating-text {
+    display: flex;
+    flex-direction: column;
+    animation: rotating-text 16s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: center;
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary-background);
+  }
+
+  .text-stroke-3 {
+    -webkit-text-stroke: 3px var(--border);
+  }
+
+  .text-stroke-4 {
+    -webkit-text-stroke: 4px var(--border);
+  }
+
+  .text-stroke-10 {
+    -webkit-text-stroke: 10px var(--border);
+  }
+
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-position: top left;
   }
 }
